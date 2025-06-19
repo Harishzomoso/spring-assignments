@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS category;
+
+CREATE TABLE category (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE books (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    summary TEXT NOT NULL,
+    category_id BIGINT,
+    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES category(id)
+);
